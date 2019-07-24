@@ -57,9 +57,10 @@ def bubble(text, hotspot="se"):
     :param hotspot: orientation, determines the image used
     :return:
     """
-    ninepatch = Ninepatch('./bubbles/{0}.9.png'.format(hotspot))
+    # ninepatch = Ninepatch('./bubbles/{0}.9.png'.format(hotspot))
+    ninepatch = Ninepatch('/home/nlaurance/PycharmProjects/bubbles/bubbles/{0}.9.png'.format(hotspot))
     text_as_image = text2img(text)
-    scaled_bubble = ninepatch.render_with_content(text_as_image)
+    scaled_bubble = ninepatch.render_wrap(text_as_image)
     if DEBUG:
         scaled_bubble.save('bubble.png')
     return scaled_bubble
@@ -117,5 +118,6 @@ def paste_bubble(screenshot, coords, hotspot, text):
 
 
 if __name__ == '__main__':
+    DEBUG = True
     bubble('Oh! lorem ipsum')
     text2img('sic fluentes\nex mercantur')

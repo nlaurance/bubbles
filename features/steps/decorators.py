@@ -32,3 +32,4 @@ def screenshot_context(step):
         context.current_screenshot = updated_screenshot
         return updated_screenshot
     return wrapper
+
